@@ -1,28 +1,26 @@
-#include<iostream>
-#include<list>
-#include<iterator>
-#include "ListaAdjancencia.h"
-
+#include "MatrizAdjacente.hpp"
+#include <iostream>
 using namespace std;
 
-int main() {
-   cout << "Digite a quantidade de vértices: ";
-   int x;
-   cin >> x;
-   list<int> adj_list[x];
-   ListaAdjacencia la;
-   int A1, A2;
-   for(int i=0; i<x ;i++){
+int main()
+{
+    int vertices, max_vertices, origem, destino;
 
-       cout << "Digite a aresta: ";
-       cin >> A1 >> A2;
-       cout << endl;
-       
-       la.add_edge(adj_list, A1, A2); // função para adicionar o segundo
-                                     // vertice a lista do primeiro
-   }
-   
-   la.displayAdjList(adj_list, x); // mostrar as listas de todos os vértices
-
-   return 0;
+    cout<<"Digite o numero de vertices: ";
+    cin>>vertices;
+    
+    MatrizAdjacente ma(vertices);
+    max_vertices = vertices * (vertices - 1);
+    
+    for (int i = 0; i < max_vertices; i++)
+    {
+        cout<<"Digite a aresta (-1 -1 to exit): ";
+        cin>>origem>>destino;
+        if((origem == -1) && (destino == -1))
+            break;
+        ma.addAresta(origem, destino);
+    }
+    ma.mostrar();
+    
+    return 0;
 }

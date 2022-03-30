@@ -1,9 +1,9 @@
-#include "MatrizAdjacente.hpp"
+#include "MatrizAdjacentePonderada.hpp"
 #include <iostream>
 #include <cstdlib>
 using namespace std;
 
-MatrizAdjacente::MatrizAdjacente(int n){
+MatrizAdjacentePonderada::MatrizAdjacentePonderada(int n){ // construtor de matriz criando uma matriz vazia com zeros
     this->n = n;
     this->visitado = new bool [n];
     this->matriz = new int* [n];
@@ -17,7 +17,7 @@ MatrizAdjacente::MatrizAdjacente(int n){
     }
 }   
         
-void MatrizAdjacente::addAresta(int origem, int destino){
+void MatrizAdjacentePonderada::addAresta(int origem, int destino, int peso){ // confere se o vertice está dentro da quantidade e se não é menor que zero
 
     if( origem > n || destino > n || origem < 0 || destino < 0)
     {   
@@ -25,11 +25,11 @@ void MatrizAdjacente::addAresta(int origem, int destino){
     }
     else
     {
-        matriz[origem - 1][destino - 1] = 1;
+        matriz[origem - 1][destino - 1] = peso; // marca a posição de destino com o peso para mostrar que tem aresta entre eles e o peso dela
     }
 }
         
-void MatrizAdjacente::mostrar(){
+void MatrizAdjacentePonderada::mostrar(){
 
     int i,j;
     for(i = 0;i < n;i++)

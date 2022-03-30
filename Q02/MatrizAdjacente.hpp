@@ -1,5 +1,6 @@
 class MatrizAdjacente
 {
+    // funções e variáveis
     private:
         int n;
         int **matriz;

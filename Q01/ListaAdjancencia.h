@@ -8,11 +8,11 @@ using namespace std;
 
 
 class ListaAdjacencia{
-
+        //declarações de funções
     public: 
         ListaAdjacencia();
-        void displayAdjList(list<int> adj_list[], int v);
-        void add_edge(list<int> adj_list[], int u, int v);
+        void mostraListaAdj(list<int> adjLista[], int v);
+        void addAresta(list<int> adjLista[], int u, int v);
 };
 
 
